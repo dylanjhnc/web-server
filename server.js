@@ -9,8 +9,9 @@ var middleware = {
 	},
 	logger: function (req, res, next) {
 		var dateObject = new Date();
-		var time = dateObject.getHours() + ':' + dateObject.getMinutes() + ':' + dateObject.getSeconds();
-		console.log('[' + time + '] Request: ' + req.method + ' ' + req.originalUrl);
+		var date = dateObject.toLocaleDateString();
+		var time = dateObject.toLocaleTimeString();
+		console.log('[' + date + ' ' + time + '] Request: ' + req.method + ' ' + req.originalUrl);
 		next();
 	}
 }
